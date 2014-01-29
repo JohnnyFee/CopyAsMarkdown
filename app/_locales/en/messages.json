@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "html2markdown",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Convert html to markdown.",
+    "description": "The description of the application"
+  }
+}
