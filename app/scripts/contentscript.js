@@ -62,22 +62,72 @@ function getSelectionHtml() {
 	return html;
 }
 
+/**
+ * Copy the content to clipboard.
+ *
+ * @param  {[type]} copingText
+ * @return {[type]}
+ */
+function copyToClipboard(copingText) {
+	var copyAreaId = "af51b1bf6b5f4a41bad6e74616a716cc";
+	var copyContainer = document.getElementById(copyAreaId);
 
+	if (!copyContainer) {
+		copyContainer = document.createElement("div");
+		copyContainer.id = copyAreaId;
+
+		//if you wan't to debug, just modify the css to make input visible.
+		copyContainer.style.position = "absolute";
+		copyContainer.style.top = 10;
+		copyContainer.style.left = 10;
+		copyContainer.style.zindex = 100;
+
+		copyContainer.innerHTML = "<textarea cols='40' rows='20' value=''></textarea>";
+	}
+
+	document.body.appendChild(copyContainer);
+
+	var input = copyContainer.querySelector("textarea");
+	input.textContent = copingText;
+	input.focus();
+	input.select();
+
+	document.execCommand("Cut", false, null);
+}
 
 // Listen for the content script to send a message to the background page.
-chrome.runtime.onMessage.addListener(function onMessage(message, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
+	if(request.action !== 'html2markdown'){
+		return;
+	}
+	
 	// Get selected html.
 	var html = getSelectionHtml();
 
 	// convert html to markdown.
 	var markdown = html2markdown(html);
 
-	// write the markdown content to clipboard.
-	// TODO 
-	alert(markdown);
+	if (markdown) {
+		// ask backgroud to write the markdown content to clipboard.
+		chrome.runtime.sendMessage({
+			action: "copytoclipboard",
+			content: markdown,
+		}, function(response) {
+			// Return nothing to let the connection be cleaned up.
+			if (response.success) {
+				sendResponse({
+					sucess: true
+				});
+				return;
+			}
+		});
+	} else {
+		sendResponse({
+			sucess: true
+		});
+	}
 
-	// Return nothing to let the connection be cleaned up.
 	sendResponse({
+		sucess: false
 	});
-
 });

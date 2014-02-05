@@ -8,7 +8,6 @@
     "16": "images/icon-16.png",
     "128": "images/icon-128.png"
   },
-
   "background": {
     "scripts": ["scripts/background.js"]
   },
@@ -36,6 +35,8 @@
     "all_frames": false
   }],
   "permissions": [
-    "*://*/*"
+    "*://*/*", 
+    "clipboardWrite",
+    "clipboardRead"
   ]
 }
