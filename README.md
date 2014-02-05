@@ -8,12 +8,15 @@ This is a Chrome Extension used to copy html form html pages and then paste mark
 2. Write the resutl(markdown) to clipboard.
 3. Preview the markdown when convert all the post.
 
+##TODO
+1. Set shortcut for the browser action.
+2. When the url starts with https://, the copied adress just will lost some infomation.
+
 ## Reference
 
 - [kates / html2markdown](https://github.com/kates/html2markdown) Javascript implementation for converting HTML to Markdown text. Browser and Node.js support.
 - [evilstreak / markdown-js](https://github.com/evilstreak/markdown-js) 提供Markdown转化为HTML的方法。
-- [evilstreak / markdown-js](https://github.com/evilstreak/markdown-js) Yet another markdown parser, this time for JavaScript. There's a few options that precede this project but they all treat markdown to HTML conversion as a single step process.
+- [adam-p / markdown-here](https://github.com/adam-p/markdown-here) Google Chrome, Firefox, and Thunderbird extension that lets you write email in Markdown and render it before sending. 
 - [domchristie / to-markdown](https://github.com/domchristie/to-markdown) An HTML to Markdown converter written in javascript 
 <http://domchristie.github.com/to-markdown>.
-- [hgilani / html2markdown](https://github.com/hgilani/html2markdown)
-- [aaronsw / html2text](https://github.com/aaronsw/html2text) html2text is a **Python** script that converts a page of HTML into clean.
+- [rick-li / clipboardExt](https://github.com/rick-li/clipboardExt) Chrome extension to copy current title&url.
