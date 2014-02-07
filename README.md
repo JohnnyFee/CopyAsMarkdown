@@ -12,6 +12,15 @@ This is a Chrome Extension used to copy html form html pages and then paste mark
 - [ ] Set shortcut for the browser action.
 - [x] Parse the relative url to full.
 
+## To do
+- [ ] Post to Hacker News
+- [ ] Share HN post on Twitter
+
+
+## Next
+- [ ] Raise $1MM
+- [ ] Retire
+
 ## Reference
 
 - [kates / html2markdown](https://github.com/kates/html2markdown) Javascript implementation for converting HTML to Markdown text. Browser and Node.js support.
