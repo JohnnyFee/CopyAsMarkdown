@@ -9,10 +9,8 @@ This is a Chrome Extension used to copy html form html pages and then paste mark
 - [] Preview the markdown when convert all the post.
 - [] Copy the `[title](url)` of the active page to clipboard.
 - [] Modify extension icon.
-
-##TODO
-1. Set shortcut for the browser action.
-2. When the url starts with https://, the copied adress just will lost some infomation.
+- [] Set shortcut for the browser action.
+- [x] Parse the relative url to full.
 
 ## Reference
 
