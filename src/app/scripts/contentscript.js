@@ -71,15 +71,21 @@ function getSelectionHtml() {
 
 // Listen for the content script to send a message to the background page.
 chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
-	if(request.action !== 'html2markdown'){
+	if (request.action !== 'html2markdown') {
 		return;
 	}
-	
+
 	// Get selected html.
 	var html = getSelectionHtml();
 
 	// convert html to markdown.
-	var markdown = html2markdown(html, {inlineStyle:true});
+	var markdown = html2markdown(html, {
+		inlineStyle: true
+	});
+
+	if (!html) {
+		markdown = '[' + document.title + '](' + location.href + ')';
+	}
 
 	if (markdown) {
 		// ask backgroud to write the markdown content to clipboard.
