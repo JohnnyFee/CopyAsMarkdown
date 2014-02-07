@@ -52,6 +52,13 @@ function getSelectionHtml() {
 				range = adjustRange(sel.getRangeAt(i));
 				container.appendChild(range.cloneContents());
 			}
+
+			// travel link to modify the relative url to absolute url.
+			var links = container.querySelectorAll("a");
+			for (var i = 0; i < links.length; i++) {
+				links[0].setAttribute("href", links[0].href);
+			};
+
 			html = container.innerHTML;
 		}
 	} else if (typeof document.selection != "undefined") {
@@ -72,7 +79,7 @@ chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendRes
 	var html = getSelectionHtml();
 
 	// convert html to markdown.
-	var markdown = html2markdown(html);
+	var markdown = html2markdown(html, {inlineStyle:true});
 
 	if (markdown) {
 		// ask backgroud to write the markdown content to clipboard.

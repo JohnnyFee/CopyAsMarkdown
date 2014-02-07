@@ -4,9 +4,11 @@ html-to-markdown
 This is a Chrome Extension used to copy html form html pages and then paste markdown into text editor.
 
 ##Issue
-1. Convert html to markdown.
-2. Write the resutl(markdown) to clipboard.
-3. Preview the markdown when convert all the post.
+- [x] Convert html to markdown.
+- [x] Write the resutl(markdown) to clipboard.
+- [] Preview the markdown when convert all the post.
+- [] Copy the `[title](url)` of the active page to clipboard.
+- [] Modify extension icon.
 
 ##TODO
 1. Set shortcut for the browser action.
