@@ -1,4 +1,4 @@
-html-to-markdown
+Copy As Markdown
 ================
 
 This is a Chrome Extension used to copy the element in current page as markdown format.
