@@ -1,7 +1,13 @@
 html-to-markdown
 ================
 
-This is a Chrome Extension used to copy html form html pages and then paste markdown into text editor.
+This is a Chrome Extension used to copy the element in current page as markdown format.
+
+##Usage
+
+You can select some element with html format in the current page and then click the extension icon, the relative text with markdown format will be written into the clipboard. You can paste is to your article or anywhere else you like. When you select nothing in the page, the page's link will be written to the cliboard, the content is like this: `[window.title](location.href)`.
+
+Except clicking the extension icon, there is another easy way to do the same action with a shortcut: **Command+Shift+C** on Mac or **Ctrl+Shift+C** on Other OS. When the default command conflit with yours, you can change it in the Chrome's tab `chrome://extensions/`.
 
 ##Issue
 - [x] Convert html to markdown.
@@ -13,12 +19,6 @@ This is a Chrome Extension used to copy html form html pages and then paste mark
 - [ ] Set shortcut for the browser action.
 - [x] Parse the relative url to full.
 - [ ] i18n. 
-
-##Usage
-
-You can select some element with html format in the current page and then click the extension icon, the relative text with markdown format will be written into the clipboard. You can paste is to your article or anywhere else you like. When you select nothing in the page, the page's link will be written to the cliboard, the content is like this: `[window.title](location.href)`.
-
-Except clicking the extension icon, there is another easy way to do the same action with a shortcut: **Command+Shift+C** on Mac or **Ctrl+Shift+C** on Other OS. When the default command conflit with yours, you can change it in the Chrome's tab `chrome://extensions/`.
 
 ## Reference
 
