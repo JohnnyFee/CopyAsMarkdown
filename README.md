@@ -12,11 +12,11 @@ Except clicking the extension icon, there is another easy way to do the same act
 ##Issue
 - [x] Convert html to markdown.
 - [x] Write the resutl(markdown) to clipboard.
-- [ ] When there is no selection range, copy title and location url.
+- [x] When there is no selection range, copy title and location url.
 - [x] Copy the `[title](url)` of the active page to clipboard.
 - add option page for inline link or not.
 - [x] Modify extension icon.
-- [ ] Set shortcut for the browser action.
+- [x] Set shortcut for the browser action.
 - [x] Parse the relative url to full.
 - [ ] i18n. 
 

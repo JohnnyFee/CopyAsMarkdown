@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Copy As Markdown",
+    "message": "拷贝为Markdown",
     "description": "The name of the application"
   },
   "appDescription": {
-    "message": "Used to copy the element in current page as markdown format.",
+    "message": "将你在页面中选中的HTML格式转化为Markdown格式。",
     "description": "The description of the application"
   }
 }

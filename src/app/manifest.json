@@ -1,9 +1,9 @@
 {
-  "name": "CopyAsMarkdown",
+  "name": "__MSG_appName__",
   "version": "0.0.1",
   "manifest_version": 2,
   "default_locale": "en",
-  "description": "Copy the selected html as markdown format.",
+  "description": "__MSG_appDescription__",
   "icons": {
     "16": "images/icon16.png",
     "128": "images/icon128.png"
