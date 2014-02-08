@@ -1,9 +1,9 @@
 {
-  "name": "Markdownize",
+  "name": "CopyAsMarkdown",
   "version": "0.0.1",
   "manifest_version": 2,
   "default_locale": "en",
-  "description": "Convert Html to Markdown.",
+  "description": "Copy the selected html as markdown format.",
   "icons": {
     "16": "images/icon16.png",
     "128": "images/icon128.png"
@@ -11,12 +11,22 @@
   "background": {
     "scripts": ["scripts/background.js"]
   },
+  "commands": {
+    "html2markdown": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "windows": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "Send 'html2markdown' command which is the same with clicking the browser_action icon."
+    }
+  },
   "browser_action": {
     "default_icon": {
       "19": "images/icon19.png",
       "38": "images/icon38.png"
     },
-    "default_title": "html2markdown"
+    "default_title": "Copy As Markdown"
   },
   "content_scripts": [{
     "matches": [
@@ -35,7 +45,7 @@
     "all_frames": false
   }],
   "permissions": [
-    "*://*/*", 
+    "*://*/*",
     "clipboardWrite",
     "clipboardRead"
   ]
