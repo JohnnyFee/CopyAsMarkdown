@@ -1,0 +1,52 @@
+{
+  "name": "__MSG_appName__",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "description": "__MSG_appDescription__",
+  "icons": {
+    "16": "images/icon16.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
+  "commands": {
+    "html2markdown": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "windows": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "Send 'html2markdown' command which is the same with clicking the browser_action icon."
+    }
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    },
+    "default_title": "__MSG_appName__"
+  },
+  "content_scripts": [{
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "css": [
+      "styles/main.css"
+    ],
+    "js": [
+      "scripts/markdown_dom_parser.js",
+      "scripts/html2markdown.js",
+      "scripts/contentscript.js"
+    ],
+    "run_at": "document_end",
+    "all_frames": false
+  }],
+  "permissions": [
+    "*://*/*",
+    "clipboardWrite",
+    "clipboardRead"
+  ]
+}

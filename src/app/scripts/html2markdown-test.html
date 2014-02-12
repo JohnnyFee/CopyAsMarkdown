@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="markdown_dom_parser.js"></script>
+	<script type="text/javascript" src="html2markdown.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	function copyToClipboard(text)
+	{
+	    if (window.clipboardData) // Internet Explorer
+	    {  
+	        window.clipboardData.setData("Text", text);
+	    }
+	    else
+	    {  
+	        unsafeWindow.netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  
+	        const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);  
+	        clipboardHelper.copyString(text);
+	    }
+	}
+
+	copyToClipboard("abcdeddd");
+
+	// alert(html2markdown("<h1>Hello markdown!</h1>"));
+	</script>
+</body>
+</html>
