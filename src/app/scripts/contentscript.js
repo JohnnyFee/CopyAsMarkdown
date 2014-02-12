@@ -35,6 +35,21 @@ function adjustRange(range) {
 	return range;
 }
 
+/**
+ * Simplify the url.
+ *
+ * <p> Sometimes, when a url is redirected by some special site such as InoReader, some parameters will be appended to it's query string.
+ *
+ * Such as a link `http://www.michenux.net/android-around-me-tutorial-974.html?utm_source=Android+Weekly&utm_campaign=292d0789d2-Android_Weekly_88&utm_medium=email&utm_term=0_4eb677ad19-292d0789d2-337832837` should be simplify to `http://www.michenux.net/android-around-me-tutorial-974.html`.
+ *
+ * @param  {[type]} url
+ * @param {[type]} excludes 要排除的查询字符串前缀。
+ * @return {[type]}
+ */
+function simplifyUrl(url, excludes) {
+	// TODO;
+}
+
 
 /**
  * 获得选择的HTML。
