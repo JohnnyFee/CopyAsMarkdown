@@ -14,11 +14,13 @@ Except clicking the extension icon, there is another easy way to do the same act
 - [x] Write the resutl(markdown) to clipboard.
 - [x] When there is no selection range, copy title and location url.
 - [x] Copy the `[title](url)` of the active page to clipboard.
-- add option page for inline link or not.
+- [ ] add option page for inline link or not.
 - [x] Modify extension icon.
 - [x] Set shortcut for the browser action.
 - [x] Parse the relative url to full.
-- [ ] i18n. 
+- [x] i18n. 
+- [ ] Beatify the href when no selection, such as remove the extra param `utm_*` in the link <http://www.michenux.net/android-around-me-tutorial-974.html?utm_source=Android+Weekly&utm_campaign=292d0789d2-Android_Weekly_88&utm_medium=email&utm_term=0_4eb677ad19-292d0789d2-337832837>. After that, the link will be <http://www.michenux.net/android-around-me-tutorial-974.html>.
+- [ ] Modify the running time of content script to idle.
 
 ## Reference
 
