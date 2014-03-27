@@ -31,6 +31,7 @@ Except clicking the extension icon, there is another easy way to do the same act
 - [ ] Modify the running time of content script to idle.
 - [x] When copy more relative links, make url all links will be ok!
 - [ ] Make sure the relative link of images is right!
+- [ ] Add an option to the option page to filter `|` or not.
 
 ## Reference
 
