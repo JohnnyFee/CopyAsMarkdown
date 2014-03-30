@@ -71,7 +71,7 @@ function getSelectionHtml() {
 			// travel link to modify the relative url to absolute url.
 			var links = container.querySelectorAll("a");
 			for (var i = 0; i < links.length; i++) {
-				links[i].setAttribute("href", links[0].href);
+				links[i].setAttribute("href", links[i].href);
 			};
 
 			html = container.innerHTML;
