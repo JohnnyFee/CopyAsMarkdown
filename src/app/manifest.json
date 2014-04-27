@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "__MSG_appDescription__",
@@ -14,9 +14,9 @@
   "commands": {
     "html2markdown": {
       "suggested_key": {
-        "default": "Ctrl+Shift+M",
-        "windows": "Ctrl+Shift+M",
-        "mac": "Command+Shift+M"
+        "default": "Ctrl+Shift+C",
+        "windows": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
       },
       "description": "Send 'html2markdown' command which is the same with clicking the browser_action icon."
     }
