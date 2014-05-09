@@ -29,6 +29,7 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 - [x] Parse the relative url to full.
 - [x] i18n. 
 - [x] Beatify the href when no selection, such as remove the extra param `utm_*` in the link <http://www.michenux.net/android-around-me-tutorial-974.html?utm_source=Android+Weekly&utm_campaign=292d0789d2-Android_Weekly_88&utm_medium=email&utm_term=0_4eb677ad19-292d0789d2-337832837>. After that, the link will be <http://www.michenux.net/android-around-me-tutorial-974.html>.
+- [ ] test the url <http://flippinawesome.org/2014/03/24/using-media-queries-in-javascript/?utm_source=rss&utm_medium=rss&utm_campaign=using-media-queries-in-javascript>.
 - [ ] Modify the running time of content script to idle.
 - [x] When copy more relative links, make url all links will be ok!
 - [x] Make sure the relative link of images is right!
