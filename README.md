@@ -13,7 +13,7 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 
 <https://chrome.google.com/webstore/detail/copy-as-markdown/dgoenpnkphkichnohepecnmpmihnabdg>
 
-##Source
+## Source
 
 - https://github.com/JohnnyFee/CopyAsMarkdown
 
@@ -34,6 +34,8 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 - [x] When copy more relative links, make url all links will be ok!
 - [x] Make sure the relative link of images is right!
 - [x] Add an option to the option page to filter `|` or not. Simplly reremove the content after `|`.
+- [ ] Convert table rightly.
+- [ ] Consider convert code in some nonstandard format. <http://blog.jobbole.com/67347/>
 
 ## Reference
 
