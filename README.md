@@ -5,6 +5,7 @@ This is a Chrome Extension used to copy the element in current page as markdown 
 
 ## Usage
 
+
 You can select any element with html format in the current page and then click the extension icon, the relative text with markdown format will be written into the clipboard. When you select nothing in the page, the page's link will be written to the cliboard, the content is like this: `[window.title](location.href)`.
 
 Also, you can custom the shortcut for the extension in Chrome's tab `chrome://extensions/`, suggested is **Ctrl+Shift+C**.
