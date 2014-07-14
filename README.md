@@ -36,6 +36,7 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 - [x] Add an option to the option page to filter `|` or not. Simplly reremove the content after `|`.
 - [ ] Convert table rightly.
 - [ ] Consider convert code in some nonstandard format. <http://blog.jobbole.com/67347/>
+- [ ] 关于 ol 数字递增的处理。
 
 ## Reference
 
