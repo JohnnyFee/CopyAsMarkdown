@@ -85,7 +85,8 @@ function html2markdown(html, opts) {
 		"ul": "* ",
 		"ol": "1. ",
 		"dl": "- ",
-		"blockquote": "> "
+		"blockquote": "> ",
+        "code": '`'
 	};
 
 	if (!parser && typeof markdownDOMParser !== 'undefined') {
@@ -231,6 +232,12 @@ function html2markdown(html, opts) {
 				nodeList.push(markdownTags[tag]);
 				break;
 			case "code":
+                if (preStack.length > 0) {
+                    break;
+                }
+
+                nodeList.push(markdownTags[tag]);
+                break;
 			case "span":
 				if (preStack.length > 0) {
 					break;

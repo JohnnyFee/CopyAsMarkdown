@@ -51,9 +51,11 @@ String.prototype.endsWith = function (suffix) {
             return;
         }
 
-        url = url.replace(/&?utm_\w+(=\w+)?/g, '');
+        url = url.replace(/&?utm_\w+(=[^&]+)/g, '');
         if (url.endsWith('/?')) {
             url = url.substring(0, url.length - 2);
+        }else if (url.endsWith('?')) {
+            url = url.substring(0, url.length - 1);
         }
         return url;
     };
