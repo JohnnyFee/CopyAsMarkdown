@@ -38,6 +38,8 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 - [x] Consider convert code in some nonstandard format. <http://blog.jobbole.com/67347/> —— Just support normal code converter.
 - [x] 关于 ol 数字递增的处理。生成的所有有序项都是 "1." 正是 Markdown 的语法。
 - [ ] add test spec.
+- [ ] copy img to qiniu when turn on the related switcher.
+- [ ] italic convertor. Like some html is converted to "_border-box_高", lacking of a space before 高。
 
 ## Reference
 

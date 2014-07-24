@@ -37,8 +37,7 @@
       "styles/main.css"
     ],
     "js": [
-      "scripts/markdown_dom_parser.js",
-      "scripts/html2markdown.js",
+      "scripts/reMarked.js",
       "scripts/contentscript.js"
     ],
     "run_at": "document_end",

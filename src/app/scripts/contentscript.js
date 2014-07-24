@@ -107,6 +107,8 @@ String.prototype.endsWith = function (suffix) {
         return html;
     };
 
+    var reMarker = new reMarked();
+
 // Listen for the content script to send a message to the background page.
     chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
         if (request.action !== 'html2markdown') {
@@ -116,10 +118,8 @@ String.prototype.endsWith = function (suffix) {
         // Get selected html.
         var html = getSelectionHtml();
 
-        // convert html to markdown.
-        var markdown = html2markdown(html, {
-            inlineStyle: true
-        });
+
+        var markdown = reMarker.render(html);
 
         // no selection
         if (!html) {
