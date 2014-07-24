@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "__MSG_appDescription__",
@@ -37,8 +37,7 @@
       "styles/main.css"
     ],
     "js": [
-      "scripts/markdown_dom_parser.js",
-      "scripts/html2markdown.js",
+      "scripts/reMarked.js",
       "scripts/contentscript.js"
     ],
     "run_at": "document_end",
