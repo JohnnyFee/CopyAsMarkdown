@@ -6,18 +6,18 @@
  * Contact: song.chen@qunar.com
  */
 
-String.prototype.endsWith = function (suffix) {
+String.prototype.endsWith = function(suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
 
-(function () {
+(function() {
     'use strict';
     /**
      * [adjustRange description]
      * @param  {[type]} range
      * @return {[type]}
      */
-    var adjustRange = function (range) {
+    var adjustRange = function(range) {
         range = range.cloneRange();
 
         // Expand range to encompass complete element if element's text
@@ -46,7 +46,7 @@ String.prototype.endsWith = function (suffix) {
      * @param  {[type]} url
      * @return {[type]}
      */
-    var simplifyUrl = function (url) {
+    var simplifyUrl = function(url) {
         if (!url) {
             return;
         }
@@ -54,13 +54,13 @@ String.prototype.endsWith = function (suffix) {
         url = url.replace(/&?utm_\w+(=[^&]+)/g, '');
         if (url.endsWith('/?')) {
             url = url.substring(0, url.length - 2);
-        }else if (url.endsWith('?')) {
+        } else if (url.endsWith('?')) {
             url = url.substring(0, url.length - 1);
         }
         return url;
     };
 
-    var simplifyTitle = function (title) {
+    var simplifyTitle = function(title) {
         if (!title) {
             return;
         }
@@ -73,7 +73,7 @@ String.prototype.endsWith = function (suffix) {
      * <p> 支持多选。
      * @return {string} 选择的字符串。
      */
-    var getSelectionHtml = function () {
+    var getSelectionHtml = function() {
         var html = "",
             sel, range;
         if (typeof window.getSelection != "undefined") {
@@ -108,10 +108,12 @@ String.prototype.endsWith = function (suffix) {
     };
 
     var reMarker = new reMarked({
-        h_atx_suf:  true
+        h1_setext: false, // underline h1 headers
+        h2_setext: false, // underline h2 headers
+        h_atx_suf: true
     });
 
-// Listen for the content script to send a message to the background page.
+    // Listen for the content script to send a message to the background page.
     chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
         if (request.action !== 'html2markdown') {
             return;
@@ -133,7 +135,7 @@ String.prototype.endsWith = function (suffix) {
             chrome.runtime.sendMessage({
                 action: "copytoclipboard",
                 content: markdown
-            }, function (response) {
+            }, function(response) {
                 // Return nothing to let the connection be cleaned up.
                 if (response.success) {
                     sendResponse({
