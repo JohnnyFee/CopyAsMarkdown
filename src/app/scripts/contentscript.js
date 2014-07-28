@@ -107,7 +107,9 @@ String.prototype.endsWith = function (suffix) {
         return html;
     };
 
-    var reMarker = new reMarked();
+    var reMarker = new reMarked({
+        h_atx_suf:  true
+    });
 
 // Listen for the content script to send a message to the background page.
     chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
