@@ -74,36 +74,36 @@ String.prototype.endsWith = function(suffix) {
      * @return {string} 选择的字符串。
      */
     var getSelectionHtml = function() {
-        var html = "",
+        var html = undefined,
             sel, range;
-        if (typeof window.getSelection != "undefined") {
-            sel = window.getSelection();
-            if (sel.rangeCount) {
-                var container = document.createElement("div");
-                for (var i = 0, len = sel.rangeCount; i < len; ++i) {
-                    range = adjustRange(sel.getRangeAt(i));
-                    container.appendChild(range.cloneContents());
-                }
 
-                // travel link to modify the relative url to absolute url.
-                var links = container.querySelectorAll("a");
-                for (var i = 0; i < links.length; i++) {
-                    links[i].setAttribute("href", links[i].href);
-                }
-
-                // travel img to modify the relative url to absolute url.
-                var imgs = container.querySelectorAll("img");
-                for (var i = 0; i < imgs.length; i++) {
-                    imgs[i].setAttribute("src", imgs[i].src);
-                }
-
-                html = container.innerHTML;
-            }
-        } else if (typeof document.selection != "undefined") {
-            if (document.selection.type == "Text") {
-                html = document.selection.createRange().htmlText;
-            }
+        if (typeof window.getSelection === "undefined") {
+            return undefined;
         }
+
+        sel = window.getSelection();
+        if (sel.rangeCount) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                range = adjustRange(sel.getRangeAt(i));
+                container.appendChild(range.cloneContents());
+            }
+
+            // travel link to modify the relative url to absolute url.
+            var links = container.querySelectorAll("a");
+            for (var i = 0; i < links.length; i++) {
+                links[i].setAttribute("href", links[i].href);
+            }
+
+            // travel img to modify the relative url to absolute url.
+            var imgs = container.querySelectorAll("img");
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].setAttribute("src", imgs[i].src);
+            }
+
+            html = container;
+        }
+
         return html;
     };
 
@@ -122,36 +122,37 @@ String.prototype.endsWith = function(suffix) {
         // Get selected html.
         var html = getSelectionHtml();
 
-
-        var markdown = reMarker.render(html);
+        var markdown;
 
         // no selection
-        if (!html) {
+        if (html) {
+            // convert html to markdown.
+            var markdown = html2markdown(html.innerHTML, {
+                inlineStyle: true
+            });
+
+            if (html.querySelectorAll('table').length > 0) {
+                markdown = reMarker.render(html.innerHTML);
+            }
+        } else {
             markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
         }
 
-        if (markdown) {
-            // ask backgroud to write the markdown content to clipboard.
-            chrome.runtime.sendMessage({
-                action: "copytoclipboard",
-                content: markdown
-            }, function(response) {
-                // Return nothing to let the connection be cleaned up.
-                if (response.success) {
-                    sendResponse({
-                        sucess: true
-                    });
-                    return;
-                }
-            });
-        } else {
-            sendResponse({
-                sucess: true
-            });
-        }
+        // ask backgroud to write the markdown content to clipboard.
+        chrome.runtime.sendMessage({
+            action: "copytoclipboard",
+            content: markdown
+        }, function(response) {
+            if (response.success) {
+                sendResponse({
+                    sucess: true
+                });
+                return;
+            }
+        });
 
         sendResponse({
-            sucess: false
+            sucess: true
         });
     });
 }());
