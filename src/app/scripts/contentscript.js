@@ -125,7 +125,7 @@ String.prototype.endsWith = function(suffix) {
         var markdown;
 
         // no selection
-        if (html) {
+        if (html && html.innerHTML) {
             // convert html to markdown.
             var markdown = html2markdown(html.innerHTML, {
                 inlineStyle: true

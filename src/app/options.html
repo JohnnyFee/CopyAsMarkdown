@@ -8,7 +8,21 @@
         <!-- endbuild -->
     </head>
     <body>
-        <!-- CHROME EXTENSION OPTION -->
-        <div></div>
+
+<pre id="myCode"><code>
+<span>-</span> package<span >.</span>json <span  spellcheck="true">// set up our node packages
+</span><span >-</span> server<span >.</span>js <span  spellcheck="true">// set up our app and build routes
+</span></code>
+</pre>
+        <script type="text/javascript">
+             var reMarker = new reMarked({
+                 gfm_code: true,
+                 trim_code:  true
+             });
+
+             var markdown = reMarker.render(document.getElementById("myCode"));
+             console.info(markdown);
+        </script>
+
     </body>
 </html>
