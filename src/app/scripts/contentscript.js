@@ -126,14 +126,7 @@ String.prototype.endsWith = function(suffix) {
 
         // no selection
         if (html && html.innerHTML) {
-            // convert html to markdown.
-            var markdown = html2markdown(html.innerHTML, {
-                inlineStyle: true
-            });
-
-            if (html.querySelectorAll('table').length > 0) {
-                markdown = reMarker.render(html.innerHTML);
-            }
+            markdown = reMarker.render(html.innerHTML);
         } else {
             markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
         }

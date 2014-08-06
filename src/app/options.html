@@ -9,10 +9,30 @@
     </head>
     <body>
 
-<pre id="myCode"><code>
-<span>-</span> package<span >.</span>json <span  spellcheck="true">// set up our node packages
-</span><span >-</span> server<span >.</span>js <span  spellcheck="true">// set up our app and build routes
-</span></code>
+<pre id="myCode" class="line-numbers  language-javascript"><code class="  language-javascript"><span class="token comment" spellcheck="true">// server.js
+</span><span class="token comment" spellcheck="true">
+// BASE SETUP
+</span><span class="token comment" spellcheck="true">// ==============================================
+</span>
+<span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require<span class="token punctuation">(</span></span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> app     <span class="token operator">=</span> <span class="token function">express<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> port    <span class="token operator">=</span>    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>PORT <span class="token operator">||</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// ROUTES
+</span><span class="token comment" spellcheck="true">// ==============================================
+</span><span class="token comment" spellcheck="true">
+// sample route with a route the way we're used to seeing it
+</span>app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/sample'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send<span class="token punctuation">(</span></span><span class="token string">'this is a sample!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// we'll create our routes here
+</span><span class="token comment" spellcheck="true">
+// START THE SERVER
+</span><span class="token comment" spellcheck="true">// ==============================================
+</span>app<span class="token punctuation">.</span><span class="token function">listen<span class="token punctuation">(</span></span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'Magic happens on port '</span> <span class="token operator">+</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code>
 </pre>
         <script type="text/javascript">
              var reMarker = new reMarked({
