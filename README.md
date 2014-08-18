@@ -7,7 +7,7 @@ This is a Chrome Extension used to copy the element in current page as markdown 
 
 You can select any element with html format in the current page and then click the extension icon, the relative text with markdown format will be written into the clipboard. When you select nothing in the page, the page's link will be written to the cliboard, the content is like this: `[window.title](location.href)`.
 
-Also, you can custom the shortcut for the extension in Chrome's tab `chrome://extensions/`, suggested is `Ctrl+Shift+C`.
+You can use the shortcut `Alt + C`. If needed, you can custom the shortcut for the extension in Chrome's tab `chrome://extensions/`.
 
 ## Get it From WebStore
 
@@ -36,7 +36,7 @@ Also, you can custom the shortcut for the extension in Chrome's tab `chrome://ex
 - [x] Consider convert code in some nonstandard format. <http://blog.jobbole.com/67347/> —— Just support normal code converter.
 - [x] 关于 ol 数字递增的处理。生成的所有有序项都是 "1." 正是 Markdown 的语法。
 - [x] italic convertor. Like some html is converted to "_border-box_高", lacking of a space before 高。
-- [ ] Modify the running time of content script to idle.
+- [x] Modify the running time of content script to idle.
 - [ ] add test spec.
 - [ ] copy img to qiniu when turn on the related switcher.
 - [ ] add option page for inline link or not.

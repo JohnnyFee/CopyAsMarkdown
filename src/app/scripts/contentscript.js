@@ -109,8 +109,7 @@ String.prototype.endsWith = function(suffix) {
 
     var reMarker = new reMarked({
         h1_setext: false, // underline h1 headers
-        h2_setext: false, // underline h2 headers
-        h_atx_suf: true
+        h2_setext: false // underline h2 headers
     });
 
     // Listen for the content script to send a message to the background page.
