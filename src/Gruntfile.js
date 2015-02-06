@@ -262,7 +262,7 @@ module.exports = function (grunt) {
         compress: {
             dist: {
                 options: {
-                    archive: 'package/html2markdown.zip'
+                    archive: 'package/CopyAsMarkdown.zip'
                 },
                 files: [{
                     expand: true,

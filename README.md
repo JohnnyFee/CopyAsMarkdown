@@ -17,6 +17,14 @@ You can use the shortcut `Alt + C`. If needed, you can custom the shortcut for t
 
 - https://github.com/JohnnyFee/CopyAsMarkdown
 
+## Build
+
+```
+cd src
+npm install & bower install
+grunt build
+```
+
 ## Issue
 
 - [x] Convert html to markdown.
@@ -40,6 +48,7 @@ You can use the shortcut `Alt + C`. If needed, you can custom the shortcut for t
 - [ ] add test spec.
 - [ ] copy img to qiniu when turn on the related switcher.
 - [ ] add option page for inline link or not.
+- [ ] 类似 <http://blog.jobbole.com/52745/>'s title is not normal。
 
 
 ## Reference
