@@ -20,6 +20,8 @@
   "smarttabs": true,
   "globals" : {
     "chrome": true,
-    "crypto": true
+    "crypto": true,
+    "rangy": true,
+    "reMarked": true
   }
 }

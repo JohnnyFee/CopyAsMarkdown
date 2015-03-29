@@ -11,7 +11,7 @@
     "background": {
         "scripts": [
             "scripts/background.js",
-            "scripts/chromereload.js",
+            "scripts/chromereload.js"
         ]
     },
     "commands": {
@@ -42,7 +42,8 @@
             ],
             "js": [
                 "scripts/reMarked.js",
-                "scripts/contentscript.js"
+                "scripts/contentscript.js",
+                "bower_components/rangy/rangy-core.js"
             ],
             "run_at": "document_idle",
             "all_frames": false

@@ -6,145 +6,90 @@
  * Contact: song.chen@qunar.com
  */
 
-String.prototype.endsWith = function(suffix) {
+
+(function () {
+  'use strict';
+
+  String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
-};
+  };
 
-(function() {
-    'use strict';
-    /**
-     * [adjustRange description]
-     * @param  {[type]} range
-     * @return {[type]}
-     */
-    var adjustRange = function(range) {
-        range = range.cloneRange();
+  /**
+   * Simplify the url.
+   *
+   * @param  {String} url
+   * @return {String}
+   */
+  var simplifyUrl = function (url) {
+    if (!url) {
+      return '';
+    }
 
-        // Expand range to encompass complete element if element's text
-        // is completely selected by the range
-        var container = range.commonAncestorContainer;
+    url = url.replace(/&?utm_\w+(=[^&]+)/g, '');
+    if (url.endsWith('/?')) {
+      url = url.substring(0, url.length - 2);
+    } else if (url.endsWith('?')) {
+      url = url.substring(0, url.length - 1);
+    }
+    return url;
+  };
 
-        // 元素类型	节点类型
-        // 元素element	1
-        // 属性attr	2
-        // 文本text	3
-        // 注释comments	8
-        // 文档document	9
-        var parentElement = container.nodeType == 3 ?
-            container.parentNode : container;
+  var simplifyTitle = function (title) {
+    if (!title) {
+      return;
+    }
 
-        if (parentElement.textContent == range.toString()) {
-            range.selectNode(parentElement);
-        }
+    return title.replace(/\s*\|.*/g, '');
+  };
 
-        return range;
-    };
+  /**
+   * 获得选择的HTML。
+   * <p> 支持多选。
+   * @return {string} 选择的字符串。
+   */
+  var getSelectionHtml = function () {
+    return rangy.getSelection().toHtml();
+  };
 
-    /**
-     * Simplify the url.
-     *
-     * @param  {[type]} url
-     * @return {[type]}
-     */
-    var simplifyUrl = function(url) {
-        if (!url) {
-            return;
-        }
+  /*jshint camelcase: false */
+  var reMarker = new reMarked({
+    h1_setext: false, // underline h1 headers
+    h2_setext: false // underline h2 headers
+  });
 
-        url = url.replace(/&?utm_\w+(=[^&]+)/g, '');
-        if (url.endsWith('/?')) {
-            url = url.substring(0, url.length - 2);
-        } else if (url.endsWith('?')) {
-            url = url.substring(0, url.length - 1);
-        }
-        return url;
-    };
+  // Listen for the content script to send a message to the background page.
+  chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
+    if (request.action !== 'html2markdown') {
+      return;
+    }
 
-    var simplifyTitle = function(title) {
-        if (!title) {
-            return;
-        }
+    // Get selected html.
+    var html = getSelectionHtml();
 
-        return title.replace(/\s*\|.*/g, "");
-    };
+    var markdown;
 
-    /**
-     * 获得选择的HTML。
-     * <p> 支持多选。
-     * @return {string} 选择的字符串。
-     */
-    var getSelectionHtml = function() {
-        var html = undefined,
-            sel, range;
+    // no selection
+    if (html && html.innerHTML) {
+      markdown = reMarker.render(html.innerHTML);
+    } else {
+      markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
+    }
 
-        if (typeof window.getSelection === "undefined") {
-            return undefined;
-        }
-
-        sel = window.getSelection();
-        if (sel.rangeCount) {
-            var container = document.createElement("div");
-            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
-                range = adjustRange(sel.getRangeAt(i));
-                container.appendChild(range.cloneContents());
-            }
-
-            // travel link to modify the relative url to absolute url.
-            var links = container.querySelectorAll("a");
-            for (var i = 0; i < links.length; i++) {
-                links[i].setAttribute("href", links[i].href);
-            }
-
-            // travel img to modify the relative url to absolute url.
-            var imgs = container.querySelectorAll("img");
-            for (var i = 0; i < imgs.length; i++) {
-                imgs[i].setAttribute("src", imgs[i].src);
-            }
-
-            html = container;
-        }
-
-        return html;
-    };
-
-    var reMarker = new reMarked({
-        h1_setext: false, // underline h1 headers
-        h2_setext: false // underline h2 headers
-    });
-
-    // Listen for the content script to send a message to the background page.
-    chrome.runtime.onMessage.addListener(function onMessage(request, sender, sendResponse) {
-        if (request.action !== 'html2markdown') {
-            return;
-        }
-
-        // Get selected html.
-        var html = getSelectionHtml();
-
-        var markdown;
-
-        // no selection
-        if (html && html.innerHTML) {
-            markdown = reMarker.render(html.innerHTML);
-        } else {
-            markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
-        }
-
-        // ask backgroud to write the markdown content to clipboard.
-        chrome.runtime.sendMessage({
-            action: "copytoclipboard",
-            content: markdown
-        }, function(response) {
-            if (response.success) {
-                sendResponse({
-                    sucess: true
-                });
-                return;
-            }
-        });
-
+    // ask backgroud to write the markdown content to clipboard.
+    chrome.runtime.sendMessage({
+      action: 'copytoclipboard',
+      content: markdown
+    }, function (response) {
+      if (response.success) {
         sendResponse({
-            sucess: true
+          sucess: true
         });
+        return;
+      }
     });
+
+    sendResponse({
+      sucess: true
+    });
+  });
 }());

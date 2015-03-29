@@ -1,6 +1,8 @@
 {
   "name": "html2markdown",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "rangy": "~1.3"
+  },
   "devDependencies": {}
 }
