@@ -53,5 +53,6 @@ grunt build
 
 ## Reference
 
-- [leeoniya/reMarked.js](https://github.com/leeoniya/reMarked.js)
+- [leeoniya/reMarked.js](https://github.com/leeoniya/reMarked.js) used to convert html to markdown.
+- [timdown/rangy · GitHub](https://github.com/timdown/rangy) A cross-browser JavaScript range and selection library.
 - [rick-li / clipboardExt](https://github.com/rick-li/clipboardExt) Chrome extension to copy current title&url.
