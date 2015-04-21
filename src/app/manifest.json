@@ -41,7 +41,7 @@
                 "styles/main.css"
             ],
             "js": [
-                "scripts/reMarked.js",
+                "scripts/vendor/reMarked.js",
                 "scripts/contentscript.js",
                 "bower_components/rangy/rangy-core.js"
             ],

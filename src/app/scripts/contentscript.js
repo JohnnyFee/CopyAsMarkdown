@@ -1,9 +1,10 @@
 /*
- * Created with Sublime Text 2.
- * User: song.chen
+ * Copy As Markdown.
+ *
+ * User: Johnny Fee
  * Date: 2014-01-29
  * Time: 23:41:10
- * Contact: song.chen@qunar.com
+ * Contact: djohnnyfee@gmail.com
  */
 
 
@@ -34,6 +35,7 @@
     return url;
   };
 
+
   var simplifyTitle = function (title) {
     if (!title) {
       return;
@@ -44,15 +46,15 @@
 
   /**
    * 获得选择的HTML。
-   * <p> 支持多选。
+   *
    * @return {string} 选择的字符串。
    */
   var getSelectionHtml = function () {
     return rangy.getSelection().toHtml();
   };
 
-  /*jshint camelcase: false */
   var reMarker = new reMarked({
+    /*jshint camelcase: false */
     h1_setext: false, // underline h1 headers
     h2_setext: false // underline h2 headers
   });
@@ -68,8 +70,7 @@
 
     var markdown;
 
-    // no selection
-    if (html && html.innerHTML) {
+    if (html) {
       markdown = reMarker.render(html.innerHTML);
     } else {
       markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
