@@ -1,5 +1,5 @@
 {
-  "name": "html2markdown",
+  "name": "copyasmarkdown",
   "version": "0.0.0",
   "dependencies": {
     "rangy": "~1.3"

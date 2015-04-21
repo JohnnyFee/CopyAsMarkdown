@@ -1,4 +1,4 @@
-// Generated on 2015-03-29 using generator-chrome-extension 0.3.1
+// Generated on 2015-04-21 using generator-chrome-extension 0.3.1
 'use strict';
 
 // # Globbing
@@ -282,7 +282,7 @@ module.exports = function (grunt) {
         options: {
           archive: function() {
             var manifest = grunt.file.readJSON('app/manifest.json');
-            return 'package/yo chrome-' + manifest.version + '.zip';
+            return 'package/CopyAsMarkdown-' + manifest.version + '.zip';
           }
         },
         files: [{
@@ -297,7 +297,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('debug', function () {
     grunt.task.run([
-      // 'jshint',
+      'jshint',
       'concurrent:chrome',
       'connect:chrome',
       'watch'
