@@ -56,7 +56,11 @@
   var reMarker = new reMarked({
     /*jshint camelcase: false */
     h1_setext: false, // underline h1 headers
-    h2_setext: false // underline h2 headers
+    h2_setext: false, // underline h2 headers
+    nbsp_spc:   true,    // convert &nbsp; entities in html to regular spaces
+    span_tags:  false,     // output spans (ambiguous) using html tags
+    div_tags:   false     // output divs (ambiguous) using html tags
+
   });
 
   // Listen for the content script to send a message to the background page.
@@ -66,12 +70,12 @@
     }
 
     // Get selected html.
-    var html = getSelectionHtml();
+    var htmlContent = getSelectionHtml();
 
     var markdown;
 
-    if (html) {
-      markdown = reMarker.render(html.innerHTML);
+    if (htmlContent) {
+      markdown = reMarker.render(htmlContent);
     } else {
       markdown = '[' + simplifyTitle(document.title) + '](' + simplifyUrl(location.href) + ')';
     }
