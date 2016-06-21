@@ -11,6 +11,7 @@ reMarked = function(opts) {
 	var cfg = {
 		link_list:	false,			// render links as references, create link list as appendix
 	//  link_near:					// cite links immediately after blocks
+    full_link:true, // absolute links or relative links
 		h1_setext:	true,			// underline h1 headers
 		h2_setext:	true,			// underline h2 headers
 		h_atx_suf:	false,			// header suffixes (###)
@@ -29,7 +30,7 @@ reMarked = function(opts) {
 		hash_lnks:	false,			// anchors w/hash hrefs as links
 		br_only:	false,			// avoid using "  " as line break indicator
 		col_pre:	"col ",			// column prefix to use when creating missing headers for tables
-		nbsp_spc:	false,			// convert &nbsp; entities in html to regular spaces
+		nbsp_spc:	true,			// convert &nbsp; entities in html to regular spaces
 		span_tags:	true,			// output spans (ambiguous) using html tags
 		div_tags:	true,			// output divs (ambiguous) using html tags
 	//	comp_style: false,			// use getComputedStyle instead of hardcoded tag list to discern block/inline
@@ -466,6 +467,10 @@ reMarked = function(opts) {
 				var kids = this.rendK(),
 					href = this.e.getAttribute("href"),
 					title = this.e.title ? ' "' + this.e.title + '"' : "";
+
+        if(cfg.full_link){
+          href = this.e.href;
+        }
 
 				if (!this.e.hasAttribute("href") || href == kids || href[0] == "#" && !cfg.hash_lnks)
 					return kids;
